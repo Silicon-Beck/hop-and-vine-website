@@ -1,18 +1,60 @@
-:root {
-  font-family: 'Georgia', serif;
-  line-height: 1.6;
-  font-weight: 400;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import "tailwindcss";
+
+@theme {
+  /* Gray palette - from stone walls */
+  --color-stone-50: #fafaf9;
+  --color-stone-100: #f5f5f4;
+  --color-stone-200: #e7e5e4;
+  --color-stone-300: #d6d3d1;
+  --color-stone-400: #a8a29e;
+  --color-stone-500: #78716c;
+  --color-stone-600: #57534e;
+  --color-stone-700: #44403c;
+  --color-stone-800: #292524;
+  --color-stone-900: #1c1917;
+  --color-stone-950: #0c0a09;
+
+  /* Green palette - from foliage */
+  --color-sage-50: #f6f7f4;
+  --color-sage-100: #e8ebe3;
+  --color-sage-200: #d2d9c8;
+  --color-sage-300: #b3c0a1;
+  --color-sage-400: #93a67a;
+  --color-sage-500: #748c5c;
+  --color-sage-600: #5a7047;
+  --color-sage-700: #475839;
+  --color-sage-800: #3b4830;
+  --color-sage-900: #333d2b;
+  --color-sage-950: #192013;
+
+  /* Purple palette - from gin bottles */
+  --color-plum-50: #faf5ff;
+  --color-plum-100: #f3e8ff;
+  --color-plum-200: #e9d5ff;
+  --color-plum-300: #d8b4fe;
+  --color-plum-400: #c084fc;
+  --color-plum-500: #a855f7;
+  --color-plum-600: #9333ea;
+  --color-plum-700: #7c2d9b;
+  --color-plum-800: #6b2180;
+  --color-plum-900: #581c66;
+  --color-plum-950: #3b0764;
+
+  /* Gold accent - from bar stools */
+  --color-gold-400: #c9a227;
+  --color-gold-500: #b8942a;
+  --color-gold-600: #9a7b22;
+
+  /* Font */
+  --font-serif: 'Georgia', serif;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  margin: 0;
-  min-width: 320px;
-}
-
-#root {
-  width: 100%;
+  font-family: var(--font-serif);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
