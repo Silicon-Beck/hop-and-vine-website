@@ -4,18 +4,21 @@ function App() {
   return (
     <div className="app">
       <nav className="navbar">
-        <div className="nav-brand">The Hop & Vine</div>
+        <a href="#home" className="nav-brand">
+          <img src="/images/logo.png" alt="The Hop & Vine" className="nav-logo" />
+        </a>
         <ul className="nav-links">
           <li><a href="#home">Home</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#drinks">Drinks</a></li>
+          <li><a href="#gallery">Gallery</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
 
       <header id="home" className="hero">
         <div className="hero-content">
-          <h1>The Hop & Vine</h1>
+          <img src="/images/logo.png" alt="The Hop & Vine" className="hero-logo" />
           <p className="tagline">Micropub & Wine Bar</p>
           <p className="subtitle">Real ales, fine wines & good company in the heart of Cowling</p>
           <a href="#drinks" className="cta-button">View Our Drinks</a>
@@ -40,6 +43,9 @@ function App() {
                 what's pouring. Dogs are welcome, board games are available, and there's always
                 a warm fire waiting.
               </p>
+              <div className="about-image">
+                <img src="/images/interior.jpg" alt="Inside The Hop & Vine" />
+              </div>
             </div>
             <div className="about-features">
               <div className="feature">
@@ -189,6 +195,33 @@ function App() {
         </div>
       </section>
 
+      <section id="gallery" className="gallery">
+        <div className="container">
+          <h2>Our Space</h2>
+          <div className="gallery-grid">
+            <div className="gallery-item gallery-item-large">
+              <img src="/images/hero.jpg" alt="The Hop & Vine bar area" />
+            </div>
+            <div className="gallery-item">
+              <img src="/images/gallery-1.jpg" alt="Inside The Hop & Vine" />
+            </div>
+            <div className="gallery-item">
+              <img src="/images/gallery-2.jpg" alt="The Hop & Vine atmosphere" />
+            </div>
+            <div className="gallery-item">
+              <img src="/images/gallery-3.jpg" alt="Drinks at The Hop & Vine" />
+            </div>
+          </div>
+          <p className="gallery-cta">
+            Follow us on{' '}
+            <a href="https://www.instagram.com/hopandvinecowling/" target="_blank" rel="noopener noreferrer">
+              Instagram
+            </a>{' '}
+            for more photos and updates
+          </p>
+        </div>
+      </section>
+
       <section id="contact" className="contact">
         <div className="container">
           <h2>Find Us</h2>
@@ -249,6 +282,7 @@ function App() {
       <footer className="footer">
         <div className="container">
           <div className="footer-content">
+            <img src="/images/logo.png" alt="The Hop & Vine" className="footer-logo" />
             <p>&copy; {new Date().getFullYear()} The Hop & Vine, Cowling. All rights reserved.</p>
             <p className="footer-tagline">Good beer, good wine, good times.</p>
             <div className="footer-social">
