@@ -1,4 +1,10 @@
+import { useState } from 'react'
+
 function App() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
+  const navLinks = ['Home', 'About', 'Drinks', 'Gallery', 'Reviews', 'Contact']
+
   const testimonials = [
     {
       quote: "A hidden gem in Cowling! The selection of local ales is fantastic, and the atmosphere is so welcoming. No loud music, just good conversation and great drinks.",
@@ -24,19 +30,55 @@ function App() {
 
   return (
     <div className="min-h-screen bg-stone-50">
+      {/* Skip Link for Accessibility */}
+      <a href="#main-content" className="skip-link">
+        Skip to main content
+      </a>
+
       {/* Navbar */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-stone-900/95 backdrop-blur-md">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-stone-900/95 backdrop-blur-md" aria-label="Main navigation">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-3">
             <a href="#home" className="flex items-center">
               <img src="/images/logo.png" alt="The Hop & Vine" className="h-12 w-auto invert" />
             </a>
-            <ul className="flex gap-6 sm:gap-8 text-sm sm:text-base">
-              {['Home', 'About', 'Drinks', 'Gallery', 'Reviews', 'Contact'].map((item) => (
+
+            {/* Desktop Navigation */}
+            <ul className="hidden md:flex gap-8 text-base">
+              {navLinks.map((item) => (
                 <li key={item}>
                   <a
                     href={`#${item.toLowerCase()}`}
                     className="text-stone-300 hover:text-sage-400 transition-colors duration-200"
+                  >
+                    {item}
+                  </a>
+                </li>
+              ))}
+            </ul>
+
+            {/* Hamburger Button */}
+            <button
+              className="md:hidden flex flex-col gap-1.5 p-2"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle menu"
+              aria-expanded={mobileMenuOpen}
+            >
+              <span className={`block w-6 h-0.5 bg-stone-300 transition-transform duration-200 ${mobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`} />
+              <span className={`block w-6 h-0.5 bg-stone-300 transition-opacity duration-200 ${mobileMenuOpen ? 'opacity-0' : ''}`} />
+              <span className={`block w-6 h-0.5 bg-stone-300 transition-transform duration-200 ${mobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
+            </button>
+          </div>
+
+          {/* Mobile Navigation */}
+          <div className={`md:hidden overflow-hidden transition-all duration-300 ${mobileMenuOpen ? 'max-h-96 pb-4' : 'max-h-0'}`}>
+            <ul className="flex flex-col gap-2">
+              {navLinks.map((item) => (
+                <li key={item}>
+                  <a
+                    href={`#${item.toLowerCase()}`}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="block py-2 px-4 text-stone-300 hover:text-sage-400 hover:bg-stone-800/50 rounded-lg transition-colors duration-200"
                   >
                     {item}
                   </a>
@@ -68,9 +110,11 @@ function App() {
         </div>
       </header>
 
-      {/* About */}
-      <section id="about" className="py-20 bg-stone-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Main Content */}
+      <main id="main-content">
+        {/* About */}
+        <section id="about" className="py-20 bg-stone-100">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl sm:text-4xl font-bold text-center text-stone-800 mb-12">Welcome to The Hop & Vine</h2>
 
           <div className="grid lg:grid-cols-2 gap-12 items-start">
@@ -347,26 +391,37 @@ function App() {
               </div>
             </div>
 
-            <div className="bg-stone-800 rounded-xl p-8 text-center flex flex-col justify-center">
-              <p className="text-sage-400 text-xl mb-2">📍 111 Keighley Road, Cowling</p>
-              <p className="text-stone-400 mb-2">On the A6068 at the west end of the village</p>
-              <p className="text-stone-400 mb-2">On-street parking available</p>
-              <p className="text-stone-400 mb-6">Bus: Transdev Mainline M4 stops nearby</p>
-              <a
-                href="https://maps.app.goo.gl/FVdUn3TVDATmu72u5"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block mx-auto px-6 py-3 bg-sage-600 hover:bg-sage-700 text-white rounded-lg transition-colors"
-              >
-                Open in Google Maps
-              </a>
+            <div className="rounded-xl overflow-hidden">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2361.8!2d-2.0089!3d53.9326!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487be4c8a8a8a8a9%3A0x0!2s111%20Keighley%20Rd%2C%20Cowling%2C%20Keighley%20BD22%200BE!5e0!3m2!1sen!2suk!4v1700000000000!5m2!1sen!2suk"
+                width="100%"
+                height="300"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="The Hop & Vine location map"
+                className="w-full"
+              />
+              <div className="bg-stone-800 p-4 text-center">
+                <p className="text-stone-400 text-sm mb-3">On the A6068 • On-street parking • Bus M4 stops nearby</p>
+                <a
+                  href="https://maps.app.goo.gl/FVdUn3TVDATmu72u5"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block px-5 py-2 bg-sage-600 hover:bg-sage-700 text-white text-sm rounded-lg transition-colors"
+                >
+                  Get Directions
+                </a>
+              </div>
             </div>
           </div>
         </div>
       </section>
+      </main>
 
       {/* Footer */}
-      <footer className="py-8 bg-stone-900">
+      <footer className="py-8 bg-stone-900" role="contentinfo">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <img src="/images/logo.png" alt="The Hop & Vine" className="h-16 w-auto mx-auto mb-4 invert" />
           <p className="text-stone-400">
