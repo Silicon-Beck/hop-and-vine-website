@@ -1,9 +1,10 @@
 import { useState } from 'react'
+import BusTracker from './components/BusTracker'
 
 function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
-  const navLinks = ['Home', 'About', 'Drinks', 'Gallery', 'Reviews', 'Contact']
+  const navLinks = ['Home', 'About', 'Drinks', 'Gallery', 'Reviews', 'Events', 'Getting Here']
 
   const testimonials = [
     {
@@ -330,124 +331,217 @@ function App() {
         </div>
       </section>
 
-      {/* Contact */}
-      <section id="contact" className="py-20 bg-stone-100">
+      {/* Events & Specials */}
+      <section id="events" className="py-20 bg-stone-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl sm:text-4xl font-bold text-center text-stone-800 mb-12">Find Us</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-center text-stone-800 mb-4">What's On</h2>
+          <p className="text-center text-stone-500 mb-12 max-w-2xl mx-auto">
+            Check out our upcoming events and today's specials
+          </p>
+
+          <div className="grid lg:grid-cols-3 gap-8">
+            {/* Daily Specials */}
+            <div className="lg:col-span-1 bg-white rounded-xl shadow-lg overflow-hidden">
+              <div className="bg-sage-700 px-6 py-4">
+                <h3 className="text-xl font-bold text-white flex items-center gap-2">
+                  <span>🍺</span> Today's Specials
+                </h3>
+              </div>
+              <div className="p-6 space-y-4">
+                <div className="border-b border-stone-200 pb-4">
+                  <p className="font-semibold text-stone-800">Guest Ale</p>
+                  <p className="text-sage-600">Ask at the bar for today's selection</p>
+                </div>
+                <div className="border-b border-stone-200 pb-4">
+                  <p className="font-semibold text-stone-800">Gin of the Week</p>
+                  <p className="text-sage-600">Featured premium gin with tonic</p>
+                </div>
+                <div>
+                  <p className="font-semibold text-stone-800">Wine Selection</p>
+                  <p className="text-sage-600">New wines available - ask for details</p>
+                </div>
+                <p className="text-stone-400 text-sm italic pt-2">
+                  Follow us on Instagram for daily updates
+                </p>
+              </div>
+            </div>
+
+            {/* Upcoming Events */}
+            <div className="lg:col-span-2 bg-white rounded-xl shadow-lg overflow-hidden">
+              <div className="bg-plum-700 px-6 py-4">
+                <h3 className="text-xl font-bold text-white flex items-center gap-2">
+                  <span>📅</span> Upcoming Events
+                </h3>
+              </div>
+              <div className="p-6">
+                <div className="grid sm:grid-cols-2 gap-4">
+                  {[
+                    { day: 'Every Sunday', title: 'Dominoes Night', desc: 'Join our friendly dominoes players - all welcome', icon: '🎲' },
+                    { day: 'First Friday', title: 'Open Mic Night', desc: 'Local musicians welcome - acoustic sets', icon: '🎵' },
+                    { day: 'Last Saturday', title: 'Quiz Night', desc: 'Test your knowledge - prizes for winners', icon: '🧠' },
+                    { day: 'Function Room', title: 'Private Hire', desc: 'Book upstairs for parties & gatherings', icon: '🎉' },
+                  ].map((event, i) => (
+                    <div key={i} className="flex gap-4 p-4 bg-stone-50 rounded-lg">
+                      <span className="text-2xl">{event.icon}</span>
+                      <div>
+                        <p className="text-xs text-plum-600 font-semibold uppercase tracking-wide">{event.day}</p>
+                        <p className="font-semibold text-stone-800">{event.title}</p>
+                        <p className="text-stone-500 text-sm">{event.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <div className="mt-6 p-4 bg-sage-50 rounded-lg border border-sage-200">
+                  <p className="text-stone-600 text-sm">
+                    <strong className="text-sage-700">Want to host an event?</strong> Our function room upstairs is available for private hire.
+                    Contact us at{' '}
+                    <a href="mailto:hopandvine02@gmail.com" className="text-plum-600 hover:underline">
+                      hopandvine02@gmail.com
+                    </a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Newsletter Signup */}
+          <div className="mt-12 bg-stone-800 rounded-xl p-8 text-center">
+            <h3 className="text-xl font-bold text-white mb-2">Stay in the Loop</h3>
+            <p className="text-stone-400 mb-6 max-w-xl mx-auto">
+              Get updates on events, new ales, and special offers delivered to your inbox.
+            </p>
+            <form
+              className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
+              onSubmit={(e) => {
+                e.preventDefault()
+                const form = e.target as HTMLFormElement
+                const email = (form.elements.namedItem('email') as HTMLInputElement).value
+                window.location.href = `mailto:hopandvine02@gmail.com?subject=Newsletter%20Signup&body=Please%20add%20me%20to%20your%20mailing%20list.%20Email:%20${encodeURIComponent(email)}`
+              }}
+            >
+              <input
+                type="email"
+                name="email"
+                placeholder="Enter your email"
+                required
+                className="flex-1 px-4 py-3 rounded-lg bg-stone-700 text-white placeholder-stone-400 border border-stone-600 focus:border-sage-500 focus:outline-none"
+              />
+              <button
+                type="submit"
+                className="px-6 py-3 bg-sage-600 hover:bg-sage-700 text-white font-semibold rounded-lg transition-colors"
+              >
+                Subscribe
+              </button>
+            </form>
+            <p className="text-stone-500 text-xs mt-4">
+              We respect your privacy. Unsubscribe anytime.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Getting Here - Location, Transport & Contact */}
+      <section id="getting here" className="py-20 bg-stone-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl sm:text-4xl font-bold text-center text-stone-800 mb-4">Getting Here</h2>
+          <p className="text-center text-stone-500 mb-12 max-w-2xl mx-auto">
+            Find us in the heart of Cowling village, well connected by bus from Keighley and Burnley
+          </p>
+
+          {/* Bus Tracker - Featured Panel */}
+          <div className="mb-12">
+            <h3 className="text-xl font-bold text-stone-800 mb-4 flex items-center gap-2">
+              <span>🚌</span> M4 Bus Service
+            </h3>
+            <BusTracker />
+          </div>
 
           <div className="grid md:grid-cols-2 gap-12">
-            <div className="space-y-8">
-              <div>
-                <h3 className="text-lg font-semibold text-sage-700 mb-2">Address</h3>
-                <p className="text-stone-600">
-                  The Hop & Vine<br />
-                  111 Keighley Road<br />
-                  Cowling<br />
-                  BD22 0BE
-                </p>
-              </div>
-
-              <div>
-                <h3 className="text-lg font-semibold text-sage-700 mb-2">Opening Hours</h3>
-                <p className="text-stone-600">
-                  Monday - Tuesday: <span className="text-stone-400">Closed</span><br />
-                  Wednesday - Thursday: 4pm - 11pm<br />
-                  Friday: 3pm - 11pm<br />
-                  Saturday: 2pm - 11pm<br />
-                  Sunday: 2pm - 9:30pm
-                </p>
-              </div>
-
-              <div>
-                <h3 className="text-lg font-semibold text-sage-700 mb-2">Contact</h3>
-                <p className="text-stone-600">
-                  Email:{' '}
-                  <a href="mailto:hopandvine02@gmail.com" className="text-plum-600 hover:text-plum-700">
-                    hopandvine02@gmail.com
-                  </a>
-                </p>
-              </div>
-
-              <div>
-                <h3 className="text-lg font-semibold text-sage-700 mb-2">Follow Us</h3>
-                <div className="flex gap-3">
+            {/* Location & Map */}
+            <div className="space-y-6">
+              <div className="rounded-xl overflow-hidden shadow-lg">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2367.5!2d-2.0421!3d53.8846!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487be4c8a8a8a8a9%3A0x0!2s111%20Keighley%20Rd%2C%20Cowling%2C%20Keighley%20BD22%200BE!5e0!3m2!1sen!2suk!4v1700000000000!5m2!1sen!2suk"
+                  width="100%"
+                  height="300"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="The Hop & Vine location map"
+                  className="w-full"
+                />
+                <div className="bg-stone-800 p-4 text-center">
+                  <p className="text-stone-400 text-sm mb-3">On the A6068 • On-street parking available</p>
                   <a
-                    href="https://www.instagram.com/hopandvinecowling/"
+                    href="https://maps.app.goo.gl/FVdUn3TVDATmu72u5"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-4 py-2 bg-stone-800 hover:bg-stone-700 text-white rounded-lg transition-colors"
+                    className="inline-block px-5 py-2 bg-sage-600 hover:bg-sage-700 text-white text-sm rounded-lg transition-colors"
                   >
-                    Instagram
-                  </a>
-                  <a
-                    href="https://www.facebook.com/profile.php?id=100063901756921"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-4 py-2 bg-stone-800 hover:bg-stone-700 text-white rounded-lg transition-colors"
-                  >
-                    Facebook
+                    Get Directions
                   </a>
                 </div>
               </div>
             </div>
 
+            {/* Contact Info */}
             <div className="space-y-6">
-              {/* Google Map */}
-              <div className="rounded-xl overflow-hidden">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2361.8!2d-2.0089!3d53.9326!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487be4c8a8a8a8a9%3A0x0!2s111%20Keighley%20Rd%2C%20Cowling%2C%20Keighley%20BD22%200BE!5e0!3m2!1sen!2suk!4v1700000000000!5m2!1sen!2suk"
-                width="100%"
-                height="300"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="The Hop & Vine location map"
-                className="w-full"
-              />
-              <div className="bg-stone-800 p-4 text-center">
-                <p className="text-stone-400 text-sm mb-3">On the A6068 • On-street parking available</p>
-                <a
-                  href="https://maps.app.goo.gl/FVdUn3TVDATmu72u5"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block px-5 py-2 bg-sage-600 hover:bg-sage-700 text-white text-sm rounded-lg transition-colors"
-                >
-                  Get Directions
-                </a>
-              </div>
-              </div>
-
-              {/* Bus Timetable */}
-              <div className="bg-white rounded-xl p-6 shadow-md">
-                <h3 className="text-lg font-semibold text-sage-700 mb-4 flex items-center gap-2">
-                  <span>🚌</span> Getting Here by Bus
-                </h3>
-                <p className="text-stone-600 text-sm mb-4">
-                  The Transdev Mainline <strong>M4</strong> bus stops right outside, running every ~30 minutes between Keighley and Burnley.
-                </p>
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="bg-sage-50 rounded-lg p-4">
-                    <p className="font-semibold text-sage-700 mb-2">→ To Keighley</p>
-                    <p className="text-stone-600 text-sm">First: ~06:03</p>
-                    <p className="text-stone-600 text-sm">Last: ~21:18</p>
-                    <p className="text-stone-500 text-xs mt-1 italic">via Cross Hills & Airedale Hospital</p>
+              <div className="bg-white rounded-xl p-6 shadow-lg">
+                <div className="space-y-6">
+                  <div>
+                    <h3 className="text-lg font-semibold text-sage-700 mb-2">Address</h3>
+                    <p className="text-stone-600">
+                      The Hop & Vine<br />
+                      111 Keighley Road<br />
+                      Cowling<br />
+                      BD22 0BE
+                    </p>
                   </div>
-                  <div className="bg-plum-50 rounded-lg p-4">
-                    <p className="font-semibold text-plum-700 mb-2">← To Burnley</p>
-                    <p className="text-stone-600 text-sm">First: ~07:07</p>
-                    <p className="text-stone-600 text-sm">Last: ~22:35</p>
-                    <p className="text-stone-500 text-xs mt-1 italic">via Colne & Nelson</p>
+
+                  <div>
+                    <h3 className="text-lg font-semibold text-sage-700 mb-2">Opening Hours</h3>
+                    <p className="text-stone-600">
+                      Monday - Tuesday: <span className="text-stone-400">Closed</span><br />
+                      Wednesday - Thursday: 4pm - 11pm<br />
+                      Friday: 3pm - 11pm<br />
+                      Saturday: 2pm - 11pm<br />
+                      Sunday: 2pm - 9:30pm
+                    </p>
+                  </div>
+
+                  <div>
+                    <h3 className="text-lg font-semibold text-sage-700 mb-2">Contact</h3>
+                    <p className="text-stone-600">
+                      Email:{' '}
+                      <a href="mailto:hopandvine02@gmail.com" className="text-plum-600 hover:text-plum-700">
+                        hopandvine02@gmail.com
+                      </a>
+                    </p>
+                  </div>
+
+                  <div>
+                    <h3 className="text-lg font-semibold text-sage-700 mb-2">Follow Us</h3>
+                    <div className="flex gap-3">
+                      <a
+                        href="https://www.instagram.com/hopandvinecowling/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-4 py-2 bg-stone-800 hover:bg-stone-700 text-white rounded-lg transition-colors"
+                      >
+                        Instagram
+                      </a>
+                      <a
+                        href="https://www.facebook.com/profile.php?id=100063901756921"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-4 py-2 bg-stone-800 hover:bg-stone-700 text-white rounded-lg transition-colors"
+                      >
+                        Facebook
+                      </a>
+                    </div>
                   </div>
                 </div>
-                <a
-                  href="https://bustimes.org/services/m4-keighley-cross-hills-colne-nelson-burnley"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block mt-4 text-sm text-plum-600 hover:text-plum-700 underline"
-                >
-                  View full M4 timetable →
-                </a>
               </div>
             </div>
           </div>
