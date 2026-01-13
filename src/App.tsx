@@ -8,7 +8,7 @@ function App() {
         <ul className="nav-links">
           <li><a href="#home">Home</a></li>
           <li><a href="#about">About</a></li>
-          <li><a href="#menu">Menu</a></li>
+          <li><a href="#drinks">Drinks</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
@@ -16,9 +16,9 @@ function App() {
       <header id="home" className="hero">
         <div className="hero-content">
           <h1>The Hop & Vine</h1>
-          <p className="tagline">A village pub in the heart of Cowling</p>
-          <p className="subtitle">Craft beers, fine wines & hearty food</p>
-          <a href="#menu" className="cta-button">View Our Menu</a>
+          <p className="tagline">Micropub & Wine Bar</p>
+          <p className="subtitle">Real ales, fine wines & good company in the heart of Cowling</p>
+          <a href="#drinks" className="cta-button">View Our Drinks</a>
         </div>
       </header>
 
@@ -28,124 +28,160 @@ function App() {
           <div className="about-content">
             <div className="about-text">
               <p>
-                Nestled in the picturesque village of Cowling, The Hop & Vine has been a
-                beloved gathering place for locals and visitors alike. Our cozy pub combines
-                the warmth of traditional Yorkshire hospitality with a carefully curated
-                selection of craft beers and wines.
+                Nestled in the heart of Cowling, The Hop & Vine is a cosy micropub and wine bar
+                offering the perfect spot for a quiet drink by the fireplace or a lively gathering
+                with friends. Converted from offices and a café in 2021-2022, we've created a
+                welcoming space on two levels with the bar downstairs and a function room above.
               </p>
               <p>
-                Whether you're looking for a quiet pint by the fire, a hearty meal with
-                family, or a lively evening with friends, we've got you covered. Our kitchen
-                serves up classic pub favourites made with locally sourced ingredients.
+                As proud supporters of LocAle, we champion local breweries and always have a
+                fantastic selection of real ales on tap. Our beer store is visible through the
+                glazed wall at the end of the bar, and we're always happy to talk you through
+                what's pouring. Dogs are welcome, board games are available, and there's always
+                a warm fire waiting.
               </p>
             </div>
             <div className="about-features">
               <div className="feature">
                 <span className="feature-icon">🍺</span>
-                <h3>Craft Beers</h3>
-                <p>Local and international craft selections</p>
+                <h3>Real Ales</h3>
+                <p>Local Yorkshire breweries</p>
               </div>
               <div className="feature">
                 <span className="feature-icon">🍷</span>
-                <h3>Fine Wines</h3>
-                <p>Carefully curated wine list</p>
+                <h3>Wine & Spirits</h3>
+                <p>Carefully selected range</p>
               </div>
               <div className="feature">
-                <span className="feature-icon">🍽️</span>
-                <h3>Pub Grub</h3>
-                <p>Hearty dishes made fresh daily</p>
+                <span className="feature-icon">🔥</span>
+                <h3>Real Fire</h3>
+                <p>Cosy atmosphere</p>
+              </div>
+              <div className="feature">
+                <span className="feature-icon">🐕</span>
+                <h3>Dog Friendly</h3>
+                <p>Four-legged friends welcome</p>
+              </div>
+              <div className="feature">
+                <span className="feature-icon">🎲</span>
+                <h3>Board Games</h3>
+                <p>Dominoes & more</p>
+              </div>
+              <div className="feature">
+                <span className="feature-icon">🎉</span>
+                <h3>Function Room</h3>
+                <p>Available for hire</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="menu" className="menu">
+      <section id="drinks" className="menu">
         <div className="container">
-          <h2>Our Menu</h2>
+          <h2>Our Drinks</h2>
           <div className="menu-grid">
             <div className="menu-category">
-              <h3>Starters</h3>
+              <h3>Real Ales</h3>
+              <p className="category-intro">Proud LocAle supporters - always featuring Yorkshire breweries</p>
               <ul className="menu-items">
                 <li>
-                  <span className="item-name">Yorkshire Pudding Bites</span>
-                  <span className="item-price">£6.50</span>
-                  <span className="item-desc">With onion gravy</span>
+                  <span className="item-name">Dark Horse Hetton Pale Ale</span>
+                  <span className="item-price">4.2%</span>
+                  <span className="item-desc">Session pale ale from Dark Horse Brewery</span>
                 </li>
                 <li>
-                  <span className="item-name">Soup of the Day</span>
-                  <span className="item-price">£5.50</span>
-                  <span className="item-desc">Served with crusty bread</span>
+                  <span className="item-name">Saltaire Blonde</span>
+                  <span className="item-price">4.0%</span>
+                  <span className="item-desc">Refreshing session blonde ale</span>
                 </li>
                 <li>
-                  <span className="item-name">Loaded Nachos</span>
-                  <span className="item-price">£7.50</span>
-                  <span className="item-desc">Cheese, jalapeños, salsa & sour cream</span>
+                  <span className="item-name">Timothy Taylor Landlord</span>
+                  <span className="item-price">4.3%</span>
+                  <span className="item-desc">Classic Yorkshire session bitter</span>
+                </li>
+                <li>
+                  <span className="item-name">Guest Ales</span>
+                  <span className="item-price">Rotating</span>
+                  <span className="item-desc">Ask at the bar for today's selection</span>
                 </li>
               </ul>
             </div>
             <div className="menu-category">
-              <h3>Mains</h3>
+              <h3>Wines</h3>
+              <p className="category-intro">A carefully curated selection of wines</p>
               <ul className="menu-items">
                 <li>
-                  <span className="item-name">Fish & Chips</span>
-                  <span className="item-price">£14.50</span>
-                  <span className="item-desc">Beer-battered cod, mushy peas, tartare sauce</span>
+                  <span className="item-name">Red Wines</span>
+                  <span className="item-price">Glass / Bottle</span>
+                  <span className="item-desc">Selection available - ask for our current list</span>
                 </li>
                 <li>
-                  <span className="item-name">Steak & Ale Pie</span>
-                  <span className="item-price">£13.50</span>
-                  <span className="item-desc">With mash and seasonal vegetables</span>
+                  <span className="item-name">White Wines</span>
+                  <span className="item-price">Glass / Bottle</span>
+                  <span className="item-desc">Selection available - ask for our current list</span>
                 </li>
                 <li>
-                  <span className="item-name">Hop & Vine Burger</span>
-                  <span className="item-price">£12.50</span>
-                  <span className="item-desc">8oz beef, bacon, cheese, hand-cut chips</span>
+                  <span className="item-name">Rosé Wines</span>
+                  <span className="item-price">Glass / Bottle</span>
+                  <span className="item-desc">Selection available - ask for our current list</span>
                 </li>
                 <li>
-                  <span className="item-name">Vegetable Curry</span>
-                  <span className="item-price">£11.50</span>
-                  <span className="item-desc">Served with rice and naan bread</span>
+                  <span className="item-name">Prosecco & Fizz</span>
+                  <span className="item-price">Glass / Bottle</span>
+                  <span className="item-desc">For celebrations big and small</span>
                 </li>
               </ul>
             </div>
             <div className="menu-category">
-              <h3>Sunday Roasts</h3>
+              <h3>Spirits & Cocktails</h3>
+              <p className="category-intro">Premium spirits and handcrafted cocktails</p>
               <ul className="menu-items">
                 <li>
-                  <span className="item-name">Roast Beef</span>
-                  <span className="item-price">£15.50</span>
-                  <span className="item-desc">With all the trimmings</span>
+                  <span className="item-name">Gins</span>
+                  <span className="item-price">Various</span>
+                  <span className="item-desc">Selection of premium gins with tonics</span>
                 </li>
                 <li>
-                  <span className="item-name">Roast Chicken</span>
-                  <span className="item-price">£14.50</span>
-                  <span className="item-desc">With all the trimmings</span>
+                  <span className="item-name">Whiskies</span>
+                  <span className="item-price">Various</span>
+                  <span className="item-desc">Single malts and blends</span>
                 </li>
                 <li>
-                  <span className="item-name">Nut Roast</span>
-                  <span className="item-price">£13.50</span>
-                  <span className="item-desc">Vegetarian option with all the trimmings</span>
+                  <span className="item-name">Vodka, Rum & More</span>
+                  <span className="item-price">Various</span>
+                  <span className="item-desc">Full spirits selection available</span>
+                </li>
+                <li>
+                  <span className="item-name">Cocktails</span>
+                  <span className="item-price">Various</span>
+                  <span className="item-desc">Classic and seasonal creations</span>
                 </li>
               </ul>
             </div>
             <div className="menu-category">
-              <h3>Drinks</h3>
+              <h3>Soft & Hot Drinks</h3>
+              <p className="category-intro">Not drinking? No problem</p>
               <ul className="menu-items">
                 <li>
-                  <span className="item-name">Cask Ales</span>
-                  <span className="item-price">from £4.20</span>
-                  <span className="item-desc">Rotating selection of local brews</span>
+                  <span className="item-name">Tea</span>
+                  <span className="item-price"></span>
+                  <span className="item-desc">A proper brew</span>
                 </li>
                 <li>
-                  <span className="item-name">Craft Lagers</span>
-                  <span className="item-price">from £4.80</span>
-                  <span className="item-desc">British and continental</span>
+                  <span className="item-name">Coffee</span>
+                  <span className="item-price"></span>
+                  <span className="item-desc">Freshly made</span>
                 </li>
                 <li>
-                  <span className="item-name">House Wine</span>
-                  <span className="item-price">£4.50 / £18</span>
-                  <span className="item-desc">Glass / Bottle</span>
+                  <span className="item-name">Hot Chocolate</span>
+                  <span className="item-price"></span>
+                  <span className="item-desc">Perfect for cold evenings</span>
+                </li>
+                <li>
+                  <span className="item-name">Soft Drinks</span>
+                  <span className="item-price"></span>
+                  <span className="item-desc">Full range available</span>
                 </li>
               </ul>
             </div>
@@ -160,28 +196,50 @@ function App() {
             <div className="contact-info">
               <div className="info-item">
                 <h3>Address</h3>
-                <p>The Hop & Vine<br />Main Street<br />Cowling, BD22 0NJ<br />North Yorkshire</p>
+                <p>The Hop & Vine<br />111 Keighley Road<br />Cowling<br />BD22 0BE</p>
               </div>
               <div className="info-item">
                 <h3>Opening Hours</h3>
                 <p>
-                  Monday - Thursday: 12pm - 11pm<br />
-                  Friday - Saturday: 12pm - 12am<br />
-                  Sunday: 12pm - 10:30pm
+                  Monday - Tuesday: Closed<br />
+                  Wednesday - Thursday: 4pm - 11pm<br />
+                  Friday: 3pm - 11pm<br />
+                  Saturday: 2pm - 11pm<br />
+                  Sunday: 2pm - 9:30pm
                 </p>
               </div>
               <div className="info-item">
                 <h3>Contact</h3>
                 <p>
-                  Tel: 01onal 635XXX<br />
-                  Email: info@hopandvine-cowling.co.uk
+                  Email: <a href="mailto:hopandvine02@gmail.com">hopandvine02@gmail.com</a>
                 </p>
+              </div>
+              <div className="info-item">
+                <h3>Follow Us</h3>
+                <div className="social-links">
+                  <a href="https://www.instagram.com/hopandvinecowling/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                    Instagram
+                  </a>
+                  <a href="https://www.facebook.com/profile.php?id=100063901756921" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                    Facebook
+                  </a>
+                </div>
               </div>
             </div>
             <div className="contact-map">
               <div className="map-placeholder">
-                <p>📍 Located in the heart of Cowling village</p>
-                <p>Easy access from Skipton and Keighley</p>
+                <p>📍 111 Keighley Road, Cowling</p>
+                <p>On the A6068 at the west end of the village</p>
+                <p>On-street parking available</p>
+                <p>Bus: Transdev Mainline M4 stops nearby</p>
+                <a
+                  href="https://maps.app.goo.gl/FVdUn3TVDATmu72u5"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="map-link"
+                >
+                  Open in Google Maps
+                </a>
               </div>
             </div>
           </div>
@@ -190,8 +248,15 @@ function App() {
 
       <footer className="footer">
         <div className="container">
-          <p>&copy; {new Date().getFullYear()} The Hop & Vine, Cowling. All rights reserved.</p>
-          <p className="footer-tagline">Good beer, good wine, good times.</p>
+          <div className="footer-content">
+            <p>&copy; {new Date().getFullYear()} The Hop & Vine, Cowling. All rights reserved.</p>
+            <p className="footer-tagline">Good beer, good wine, good times.</p>
+            <div className="footer-social">
+              <a href="https://www.instagram.com/hopandvinecowling/" target="_blank" rel="noopener noreferrer">Instagram</a>
+              <span className="separator">|</span>
+              <a href="https://www.facebook.com/profile.php?id=100063901756921" target="_blank" rel="noopener noreferrer">Facebook</a>
+            </div>
+          </div>
         </div>
       </footer>
     </div>
