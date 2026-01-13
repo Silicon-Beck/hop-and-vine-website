@@ -391,7 +391,9 @@ function App() {
               </div>
             </div>
 
-            <div className="rounded-xl overflow-hidden">
+            <div className="space-y-6">
+              {/* Google Map */}
+              <div className="rounded-xl overflow-hidden">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2361.8!2d-2.0089!3d53.9326!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487be4c8a8a8a8a9%3A0x0!2s111%20Keighley%20Rd%2C%20Cowling%2C%20Keighley%20BD22%200BE!5e0!3m2!1sen!2suk!4v1700000000000!5m2!1sen!2suk"
                 width="100%"
@@ -404,7 +406,7 @@ function App() {
                 className="w-full"
               />
               <div className="bg-stone-800 p-4 text-center">
-                <p className="text-stone-400 text-sm mb-3">On the A6068 • On-street parking • Bus M4 stops nearby</p>
+                <p className="text-stone-400 text-sm mb-3">On the A6068 • On-street parking available</p>
                 <a
                   href="https://maps.app.goo.gl/FVdUn3TVDATmu72u5"
                   target="_blank"
@@ -412,6 +414,39 @@ function App() {
                   className="inline-block px-5 py-2 bg-sage-600 hover:bg-sage-700 text-white text-sm rounded-lg transition-colors"
                 >
                   Get Directions
+                </a>
+              </div>
+              </div>
+
+              {/* Bus Timetable */}
+              <div className="bg-white rounded-xl p-6 shadow-md">
+                <h3 className="text-lg font-semibold text-sage-700 mb-4 flex items-center gap-2">
+                  <span>🚌</span> Getting Here by Bus
+                </h3>
+                <p className="text-stone-600 text-sm mb-4">
+                  The Transdev Mainline <strong>M4</strong> bus stops right outside, running every ~30 minutes between Keighley and Burnley.
+                </p>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="bg-sage-50 rounded-lg p-4">
+                    <p className="font-semibold text-sage-700 mb-2">→ To Keighley</p>
+                    <p className="text-stone-600 text-sm">First: ~06:03</p>
+                    <p className="text-stone-600 text-sm">Last: ~21:18</p>
+                    <p className="text-stone-500 text-xs mt-1 italic">via Cross Hills & Airedale Hospital</p>
+                  </div>
+                  <div className="bg-plum-50 rounded-lg p-4">
+                    <p className="font-semibold text-plum-700 mb-2">← To Burnley</p>
+                    <p className="text-stone-600 text-sm">First: ~07:07</p>
+                    <p className="text-stone-600 text-sm">Last: ~22:35</p>
+                    <p className="text-stone-500 text-xs mt-1 italic">via Colne & Nelson</p>
+                  </div>
+                </div>
+                <a
+                  href="https://bustimes.org/services/m4-keighley-cross-hills-colne-nelson-burnley"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block mt-4 text-sm text-plum-600 hover:text-plum-700 underline"
+                >
+                  View full M4 timetable →
                 </a>
               </div>
             </div>
